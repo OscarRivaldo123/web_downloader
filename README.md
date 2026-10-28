@@ -42,10 +42,25 @@ Beberapa konten Instagram/TikTok/YouTube meminta login. Ekspor cookies browser k
 ```
 app.py            Backend FastAPI (API info/prepare/task/file/thumbnail)
 static/           Frontend (index.html, style.css, app.js)
-bin/              ffmpeg & ffprobe (bundel lokal)
+bin/              ffmpeg & ffprobe (bundel lokal, hanya untuk Windows lokal)
 downloads/        File sementara (dibersihkan otomatis)
-venv/             Virtual environment Python
+venv/             Virtual environment Python (lokal)
+Dockerfile        Image produksi (Linux + ffmpeg) untuk deployment
+render.yaml       Blueprint deployment Render
 ```
+
+## Deploy ke Render
+
+Aplikasi ini **tidak kompatibel dengan Vercel** karena membutuhkan background thread, filesystem persisten sementara, dan FFmpeg — semuanya tidak didukung serverless.
+
+Gunakan platform yang mendukung **long-running service** seperti [Render](https://render.com):
+
+1. Push repo ini ke GitHub.
+2. Di Render dashboard: **New → Blueprint**, pilih repo ini (autodeteksi `render.yaml`), atau **New → Web Service → Deploy an existing image/Repo dengan runtime Docker**.
+3. Render akan build image Docker (sudah termasuk ffmpeg) dan expose service di URL publik.
+4. Free tier Render akan *spin down* saat idle; request pertama setelah idle butuh ~30 detik cold start.
+
+> **Catatan:** yt-dlp dari IP datacenter sering diblokir YouTube/Instagram/TikTok (error "confirm you're not a bot"). Untuk mengatasinya, sediakan `cookies.txt` fresh, atau gunakan proxy residential berbayar.
 
 ## Catatan
 

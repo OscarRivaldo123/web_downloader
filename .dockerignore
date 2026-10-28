@@ -1,0 +1,10 @@
+venv/
+downloads/
+bin/
+__pycache__/
+*.pyc
+cookies.txt
+.git/
+*.bat
+README.md
+ff.zip
