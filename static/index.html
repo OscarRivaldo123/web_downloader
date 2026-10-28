@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Unduhin — Unduh Video &amp; Audio dari YouTube, Instagram, TikTok</title>
+<meta name="description" content="Tempel tautan YouTube, Instagram, atau TikTok, lalu unduh sebagai MP4 (144p–4K) atau MP3 (64–320 kbps). Gratis, cepat, tanpa iklan.">
+<meta name="theme-color" content="#0a0c12">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%237c8cff'/%3E%3Cpath d='M16 7v12m0 0l-5-5m5 5l5-5M9 24h14' stroke='white' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#">
+      <span class="brand-mark">
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11m0 0l-4.5-4.5M12 15l4.5-4.5M5 20h14"/></svg>
+      </span>
+      Unduhin
+    </a>
+    <div class="nav-links">
+      <a href="#cara">Cara Pakai</a>
+      <a href="#faq">FAQ</a>
+    </div>
+  </div>
+</nav>
+
+<main class="wrap">
+
+  <section class="hero">
+    <h1>Unduh video &amp; audio<br><span class="grad">dari tautan favoritmu</span></h1>
+    <p class="sub">Tempel tautan YouTube, Instagram, atau TikTok — lihat pratinjaunya, pilih format MP4 atau MP3, atur resolusi dan ukurannya, lalu unduh. Gratis, tanpa iklan, tanpa daftar akun.</p>
+    <div class="search">
+      <input id="url" type="text" inputmode="url" placeholder="https://www.youtube.com/watch?v=…" spellcheck="false" autocomplete="off" aria-label="Tautan video">
+      <button id="pasteBtn" class="ghost" type="button">Tempel</button>
+      <button id="analyzeBtn" class="primary" type="button">Analisis</button>
+    </div>
+    <div id="errorBox" class="error" hidden></div>
+    <div class="platforms">
+      <span class="pill">YouTube</span>
+      <span class="sep"></span>
+      <span class="pill">Instagram</span>
+      <span class="sep"></span>
+      <span class="pill">TikTok</span>
+    </div>
+  </section>
+
+  <section id="result" class="result" hidden>
+    <div class="media-card">
+      <div id="thumbWrap" class="thumb">
+        <img id="thumb" alt="Pratinjau video">
+        <span id="duration" class="dur" hidden></span>
+      </div>
+      <div class="meta">
+        <div class="meta-top">
+          <span id="platform" class="chip"></span>
+          <span id="uploader" class="uploader"></span>
+        </div>
+        <h2 id="title"></h2>
+      </div>
+    </div>
+
+    <div class="formats">
+      <div class="formats-head">
+        <div class="tabs">
+          <button class="tab active" data-mode="video" type="button">MP4 · Video</button>
+          <button class="tab" data-mode="audio" type="button">MP3 · Audio</button>
+        </div>
+        <p class="note">Ukuran file adalah estimasi; ukuran final tampil setelah unduhan selesai.</p>
+      </div>
+      <div id="rows" class="rows"></div>
+    </div>
+  </section>
+
+  <section id="history" class="history" hidden>
+    <h3>Riwayat unduhan sesi ini</h3>
+    <div id="historyList"></div>
+  </section>
+
+  <h2 class="section-title" id="fitur">Kenapa pakai Unduhin</h2>
+  <section class="features">
+    <div class="feat">
+      <h3>Semua resolusi</h3>
+      <p>Dari 144p hingga 4K sesuai kualitas sumber. Ukuran tiap format tampil lebih dulu, jadi tidak ada kejutan kuota.</p>
+    </div>
+    <div class="feat">
+      <h3>MP3 kualitas pilihan</h3>
+      <p>Konversi ke MP3 64–320 kbps langsung dari stream audio asli, bukan hasil rekaman ulang.</p>
+    </div>
+    <div class="feat">
+      <h3>TikTok tanpa watermark</h3>
+      <p>Video TikTok diambil dari sumber aslinya, bersih tanpa stempel dan tanpa aplikasi tambahan.</p>
+    </div>
+    <div class="feat">
+      <h3>Privasi terjaga</h3>
+      <p>Semua diproses di komputermu. Salinan sementara dihapus otomatis, tidak ada pelacakan apa pun.</p>
+    </div>
+  </section>
+
+  <h2 class="section-title" id="cara">Tiga langkah selesai</h2>
+  <section class="steps">
+    <div class="step">
+      <span class="num">01</span>
+      <h3>Salin tautan</h3>
+      <p>Buka video di YouTube, Instagram, atau TikTok, lalu salin URL dari bilah alamat atau menu Bagikan.</p>
+    </div>
+    <div class="step">
+      <span class="num">02</span>
+      <h3>Tempel &amp; analisis</h3>
+      <p>Masukkan tautan di kolom atas, tekan Analisis, dan tunggu pratinjau video muncul beserta daftar formatnya.</p>
+    </div>
+    <div class="step">
+      <span class="num">03</span>
+      <h3>Pilih &amp; unduh</h3>
+      <p>Tentukan MP4 atau MP3, pilih resolusi atau bitrate sesuai kebutuhan, lalu tekan Unduh.</p>
+    </div>
+  </section>
+
+  <h2 class="section-title" id="faq">Pertanyaan yang sering muncul</h2>
+  <section class="faq">
+    <details>
+      <summary>Apakah Unduhin gratis?</summary>
+      <p>Ya. Tidak ada batas jumlah unduhan, tidak perlu akun, dan tidak ada iklan pop-up. Semua proses berjalan di komputermu sendiri.</p>
+    </details>
+    <details>
+      <summary>Format dan kualitas apa saja yang tersedia?</summary>
+      <p>MP4 dari 144p hingga 4K (mengikuti kualitas sumber) dan MP3 64–320 kbps. Estimasi ukuran file ditampilkan sebelum kamu memutuskan mengunduh.</p>
+    </details>
+    <details>
+      <summary>Kenapa tautan Instagram atau TikTok saya gagal?</summary>
+      <p>Akun privat dan konten berbatas usia membutuhkan login. Simpan cookies browser (format Netscape) sebagai <code>cookies.txt</code> di folder aplikasi, lalu coba lagi. Konten yang telah dihapus atau diblokir wilayah juga tidak dapat diambil.</p>
+    </details>
+    <details>
+      <summary>Ke mana file hasil unduhan disimpan?</summary>
+      <p>File dikirim langsung ke folder unduhan browsermu. Salinan sementara di server lokal otomatis terhapus setelah 20 menit.</p>
+    </details>
+    <details>
+      <summary>Apakah mengunduh video dari platform itu legal?</summary>
+      <p>Unduhan untuk penggunaan pribadi dari konten milikmu sendiri atau berlisensi bebas umumnya aman. Mengunggah ulang karya orang lain tanpa izin adalah pelanggaran hak cipta — gunakan secara bertanggung jawab.</p>
+    </details>
+  </section>
+
+</main>
+
+<footer>
+  <p>Unduhin berjalan sepenuhnya di komputermu. Gunakan secara bertanggung jawab dan hormati hak cipta pencipta.</p>
+  <p class="fine">© 2026 Unduhin · Dibuat untuk penggunaan pribadi</p>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
